@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <script>
+      window.addEventListener(
+        'error',
+        function (event) {
+          var src = String((event && event.filename) || '');
+          var msg = String((event && event.message) || '');
+          var stack = String((event && event.error && event.error.stack) || '');
+          var fromExtension =
+            src.indexOf('chrome-extension://') === 0 ||
+            src.indexOf('moz-extension://') === 0 ||
+            stack.indexOf('chrome-extension://') !== -1 ||
+            stack.indexOf('moz-extension://') !== -1;
+          if (fromExtension && msg.indexOf('Cannot set property fetch') !== -1) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+          }
+        },
+        true
+      );
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BitChord Unified Desktop</title>
+    <meta
+      name="description"
+      content="Cross-platform BitChord desktop music workstation unifying BitChord PC, Android feature parity, real-time Listen Together, and multi-device Flutter/Android sync."
+    />
+    <meta property="og:title" content="BitChord Unified Desktop" />
+    <meta
+      property="og:description"
+      content="Cross-platform BitChord desktop music workstation unifying BitChord PC, Android feature parity, real-time Listen Together, and multi-device Flutter/Android sync."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-[#090A0F] text-[#F1F3F9] antialiased selection:bg-white/20 selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

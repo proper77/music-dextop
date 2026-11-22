@@ -1,0 +1,8 @@
+{
+  "name": "BitChord Unified Desktop",
+  "description": "Cross-platform BitChord desktop music workstation unifying BitChord PC, Android feature parity, real-time Listen Together, and multi-device Flutter/Android sync.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
